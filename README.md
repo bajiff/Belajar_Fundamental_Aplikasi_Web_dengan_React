@@ -1,5 +1,7 @@
 <h1>Hellow</h1>
 
+<p>Cara clone</p>
+
 ```bash
 git clone https://github.com/bajiff/Belajar_Fundamental_Aplikasi_Web_dengan_React.git
 ```
