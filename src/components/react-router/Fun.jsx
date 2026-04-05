@@ -15,7 +15,7 @@ export const ContactPage = () => {
 
 export const Link = ({target, navigate, children}) => {
   return (
-    <a href={target} onClick={() => navigate}>{children}</a>
+    <a href={target} onClick={event => {event.preventDefault(); navigate(target)}}>{children}</a>
   )
 }
 
@@ -50,13 +50,13 @@ export default class Fun extends Component {
           <nav>
             <ul>
               <li>
-                <Link target={"/"} navigate={this.navigate}>Home</Link>
+                <Link target='/' navigate={this.navigate}>Home</Link>
               </li>
               <li>
-                <Link target={"/about"} navigate={this.navigate}>About</Link>
+                <Link target='/about' navigate={this.navigate}>About</Link>
               </li>
               <li>
-                <Link target={"/contact"} navigate={this.navigate}>Contact</Link>
+                <Link target='/contact' navigate={this.navigate}>Contact</Link>
               </li>
             </ul>
           </nav>
