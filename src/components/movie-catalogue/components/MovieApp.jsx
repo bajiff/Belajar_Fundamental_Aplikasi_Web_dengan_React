@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom';
 import { Navigation } from "./index.js";
-import { HomePage, NowPlayingPage, UpcomingPage, SearchPage } from "./../pages/index.js"
+import { HomePage, NowPlayingPage, UpcomingPage, SearchPage, DetailPageWrapper } from "./../pages/index.js"
 
 
 const MovieApp = () => {
@@ -17,6 +17,7 @@ const MovieApp = () => {
           <Route path="/now-playing" element={<NowPlayingPage />} />
           <Route path="/upcoming" element={<UpcomingPage />} />
           <Route path="/search" element={<SearchPage />} />
+          <Route path="/movies/:id" element={<DetailPageWrapper/>} />
         </Routes>
       </main>
     </>
