@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import { Component } from 'react'
+import { Link, Routes, Route } from 'react-router-dom';
 
 export const HomePage = () => {
   return <p>Helow Welcome To HomePage</p>
@@ -13,12 +14,6 @@ export const ContactPage = () => {
   return <p>Ini adalah ContactPage</p>
 };
 
-export const Link = ({target, navigate, children}) => {
-  return (
-    <a href={target} onClick={event => {event.preventDefault(); navigate(target)}}>{children}</a>
-  )
-}
-
 export default class Fun extends Component {
   constructor(props) {
     super(props);
@@ -27,10 +22,6 @@ export default class Fun extends Component {
       page: '/'
     };
 
-    Fun.PropTypes = {
-      page: PropTypes.string
-    }
-    
     this.navigate = this.navigate.bind(this);
   }
 
@@ -41,7 +32,6 @@ export default class Fun extends Component {
       };
     });
   }
-  
 
   render() {
     return (
@@ -50,23 +40,25 @@ export default class Fun extends Component {
           <nav>
             <ul>
               <li>
-                <Link target='/' navigate={this.navigate}>Home</Link>
+                <Link to='/' navigate={this.navigate}>Home</Link>
               </li>
               <li>
-                <Link target='/about' navigate={this.navigate}>About</Link>
+                <Link to='/about' navigate={this.navigate}>About</Link>
               </li>
               <li>
-                <Link target='/contact' navigate={this.navigate}>Contact</Link>
+                <Link to='/contact' navigate={this.navigate}>Contact</Link>
               </li>
             </ul>
           </nav>
         </header>
         <main>
-          {this.state.page === '/' && <HomePage/>}
-          {this.state.page === '/about' && <AboutPage/>}
-          {this.state.page === '/contact' && <ContactPage/>}
+          <Routes>
+            <Route path='/' element={<HomePage/>} />
+            <Route path='/about' element={<AboutPage/>} />
+            <Route path='/contact' element={<ContactPage/>} />
+          </Routes>
         </main>
       </>
-    )
-  }
-}
+    );
+  };
+};

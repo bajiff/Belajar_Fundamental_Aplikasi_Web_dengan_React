@@ -1,9 +1,11 @@
-import React from 'react'
-import Fun from './components/react-router/Fun';
+import MovieApp from './components/movie-catalogue/components/MovieApp'
+import { BrowserRouter } from 'react-router-dom';
 
 const App = () => {
   return (
-    <Fun/>
+    <BrowserRouter>
+      <MovieApp/>
+    </BrowserRouter>
   )
 }
 
